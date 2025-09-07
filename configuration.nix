@@ -68,7 +68,9 @@
   services.xserver.enable = true;
 
   # GPU stuff
-  services.xserver.videoDrivers = [ "nvidia" ];
+  boot.kernelParams = [ "nvidia-drm.modeset=1" ];
+  services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
+  hardware.opengl.enable = true;
 
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
@@ -107,12 +109,11 @@
   services.asusd.enable = true;
 
   # hyprland
-  # programs.hyprland = {
-  #   enable = true;
-  #   package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-  #   portalPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  #   xwayland.enable = true;
-  # };
+  programs.hyprland = {
+    enable = true;
+    package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  };
 
   # SDDM
   services.xserver.displayManager.sddm.enable = false;
@@ -176,6 +177,8 @@
     pciutils
     btop
     gh
+    kitty
+    direnv
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

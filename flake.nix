@@ -4,11 +4,12 @@
 
  inputs = {
   nixpkgs.url = "nixpkgs/nixos-25.05"; # where nix packages are being installed from
+  hyprland.url = "github:hyprwm/Hyprland";
   home-manager.url = "github:nix-community/home-manager/release-25.05"; # home manager has seperate installation source
   home-manager.inputs.nixpkgs.follows = "nixpkgs"; # make sure that version is same for homeanager and nixpkgs
  };
 
- outputs = {self, nixpkgs, home-manager, ... }: #args of packages used down the line
+ outputs = {self, nixpkgs, home-manager, hyprland, ... }: #args of packages used down the line
   let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
@@ -17,6 +18,7 @@
   nixosConfigurations = {
     nixos = lib.nixosSystem {
       inherit system; # takes system as arg
+      specialArgs = { inherit hyprland; }; # pass hyprland for conigurarion so that it will use special hyprland git repository as source
       modules = [ ./configuration.nix ]; #file inside .dotfiles
     };
   };

@@ -1,0 +1,14 @@
+to siwtch the build of nixos using flake:
+ sudo nixos-rebuild switch --flake . (add #[name] after . if config name is different from nixos hostname)
+
+to update packages:
+ nix flake update
+and then switch the system
+
+update home manager:
+ home-manager switch --flake . (add #[name] after . if config name is different from user account)
+
+home manager rollback
+ home-manager generations -> output list of generations
+in shell copy the file of the geenration you want to swith and run
+ [generation path]/activate -> activates that home-manager generation

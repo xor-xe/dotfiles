@@ -1,0 +1,31 @@
+{
+
+ description = "My First flake";
+
+ inputs = {
+  nixpkgs.url = "nixpkgs/nixos-25.05"; # where nix packages are being installed from
+  home-manager.url = "github:nix-community/home-manager/release-25.05"; # home manager has seperate installation source
+  home-manager.inputs.nixpkgs.follows = "nixpkgs"; # make sure that version is same for homeanager and nixpkgs
+ };
+
+ outputs = {self, nixpkgs, home-manager, ... }: #args of packages used down the line
+  let
+    lib = nixpkgs.lib;
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
+  nixosConfigurations = {
+    nixos = lib.nixosSystem {
+      inherit system; # takes system as arg
+      modules = [ ./configuration.nix ]; #file inside .dotfiles
+    };
+  };
+  homeConfigurations = { # home config for user
+    xorxe = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs; # takes pkgs as args but as var from let binding above
+      modules = [ ./home.nix ]; #file inside .dotfiles
+    };
+  };
+ };
+
+}

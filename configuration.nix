@@ -68,6 +68,7 @@
   services.xserver.enable = true;
 
   # GPU stuff
+  boot.kernelModules = [ "amdgpu" ];
   boot.kernelParams = [ "nvidia-drm.modeset=1" ];
   services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
   hardware.opengl.enable = true;
@@ -180,6 +181,8 @@
     kitty
     direnv
     obsidian
+    radeontop
+    glxinfo
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

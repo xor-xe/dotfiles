@@ -68,16 +68,20 @@
   services.xserver.enable = true;
 
   # GPU stuff
+  # boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ]; #thise might work but needs bigger /boot
+  # boot.initrd.kernelModules = [ "nvidia" "i915" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
   boot.kernelModules = [ "amdgpu" ];
   boot.kernelParams = [ "nvidia-drm.modeset=1" ];
-  services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
-  hardware.opengl.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" "nvidia"]; # whne runnig gpu heavy tasks you need specify to us gpu with prime offload if arg is only amgpu cuz now "nvidia" is disabled in wm
+  hardware.graphics.enable = true;
 
   hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
     modesetting.enable = true; # recommended
     powerManagement.enable = true; # optional, saves power on laptops
     open = false; # for RTX / GTX 16xx and newer
+
+    nvidiaSettings = true;
 
     prime = {
       offload.enable = true;
@@ -123,7 +127,10 @@
   };
 
   # SDDM
-  services.xserver.displayManager.sddm.enable = false;
+  services.displayManager.sddm.enable = false;
+  services.displayManager.sddm.theme = "breeze";
+  services.displayManager.sddm.wayland.enable = false; # false works
+
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;

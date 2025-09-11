@@ -78,6 +78,12 @@
     modesetting.enable = true; # recommended
     powerManagement.enable = true; # optional, saves power on laptops
     open = false; # for RTX / GTX 16xx and newer
+
+    prime = {
+      offload.enable = true;
+      amdgpuBusId = "0000:197:0:0"; # fom my amd igpu i had to find out that it was working by running glxinfo | grep "OpenGL renderer" and the finding out the address with sudo dmesg | grep -i amdgpu
+      nvidiaBusId = "0000:196:0:0";
+    };
   };
 
   # CPU config stuff uncoment this once you remove GNOME, Gnome manages this by itself with power-porifles-daemon

@@ -22,7 +22,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.gfxmodeEfi = "2880x1800";   # replace with your resolution
   boot.loader.grub.gfxpayloadEfi = "keep";
-  boot.loader.generationsDir.limit = 2;
   boot.loader.grub.theme = "${pkgs.fetchFromGitHub { # current as of 11/2022
     owner = "adnksharp";
     repo = "CyberGRUB-2077";

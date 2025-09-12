@@ -28,6 +28,14 @@
     rev = "2e34b5f9c5812f1af274bc652b2c31f893015ca1";
     sha256 = "sha256-R/rQgwsA61dZrPr2OQt5bnI/QZXKLUB8xIoDJga1VoU=";
   }}/CyberGRUB-2077";
+  boot.loader.grub.extraEntries = ''
+    menuentry "Windows Boot Manager (on /dev/nvme0n1p1)" {
+        insmod part_gpt
+        insmod fat
+        search --no-floppy --fs-uuid --set=root 3C9B-F75D
+        chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+    }
+  '';
 
   # Allow GRUB to find Windows and other OS
   boot.loader.grub.useOSProber = true;

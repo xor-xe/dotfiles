@@ -12,3 +12,12 @@ home manager rollback
  home-manager generations -> output list of generations
 in shell copy the file of the geenration you want to swith and run
  [generation path]/activate -> activates that home-manager generation
+
+list all generations
+ sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
+
+collect garbge (old packages only)
+ sudo nix-collect-garbage
+
+collect garbage and old generations (all of them) (use other options to dleete specific generations)
+ sudo nix-collect-garbage -d

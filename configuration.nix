@@ -22,6 +22,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.gfxmodeEfi = "2880x1800";   # replace with your resolution
   boot.loader.grub.gfxpayloadEfi = "keep";
+  boot.loader.generationsDir.limit = 2;
   boot.loader.grub.theme = "${pkgs.fetchFromGitHub { # current as of 11/2022
     owner = "adnksharp";
     repo = "CyberGRUB-2077";
@@ -72,11 +73,11 @@
   # boot.initrd.kernelModules = [ "nvidia" "i915" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
   boot.kernelModules = [ "amdgpu" ];
   boot.kernelParams = [ "nvidia-drm.modeset=1" ];
-  services.xserver.videoDrivers = [ "amdgpu" "nvidia"]; # whne runnig gpu heavy tasks you need specify to us gpu with prime offload if arg is only amgpu cuz now "nvidia" is disabled in wm
+  services.xserver.videoDrivers = [ "amdgpu" ]; # whne runnig gpu heavy tasks you need specify to us gpu with prime offload if arg is only amgpu cuz now "nvidia" is disabled in wm
   hardware.graphics.enable = true;
 
   hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.production;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
     modesetting.enable = true; # recommended
     powerManagement.enable = true; # optional, saves power on laptops
     open = false; # for RTX / GTX 16xx and newer

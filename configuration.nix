@@ -68,9 +68,9 @@
   services.xserver.enable = true;
 
   # GPU stuff
-  # boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ]; #thise might work but needs bigger /boot
-  # boot.initrd.kernelModules = [ "nvidia" "i915" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
-  boot.kernelModules = [ "amdgpu" ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ]; #thise might work but needs bigger /boot
+  # boot.initrd.kernelModules = [  ];
+  boot.kernelModules = [ "amdgpu" "nvidia" ];
   boot.kernelParams = [ "nvidia-drm.modeset=1" ];
   services.xserver.videoDrivers = [ "amdgpu" ]; # whne runnig gpu heavy tasks you need specify to us gpu with prime offload if arg is only amgpu cuz now "nvidia" is disabled in wm
   hardware.graphics.enable = true;

@@ -202,6 +202,7 @@
     obsidian
     radeontop
     glxinfo
+    brightnessctl
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -216,6 +217,12 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
+    font-awesome
+  ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

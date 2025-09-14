@@ -1,10 +1,35 @@
 {...}:{
+
+  wayland.windowManager.hyprland.settings.gestures = {
+    workspace_swipe = true;
+    workspace_swipe_fingers = 3;  # Number of fingers for swipe
+    workspace_swipe_distance = 300;  # Minimum distance in pixels
+    workspace_swipe_invert = true;  # Default direction
+    workspace_swipe_min_speed_to_force = 5;  # Minimum speed to force switch
+    workspace_swipe_cancel_ratio = 0.5;  # Fraction to cancel swipe
+  };
   wayland.windowManager.hyprland.settings.bind = 
-    [
+    [   # generic
+        "$mod, Q, killactive"
+
+        # apps
         "$mod, F, exec, firefox"
         "$mod, T, exec, kitty"
         "$mod, C, exec, code"
-        "$mod, Q, killactive"
+        "$mod, R, exec, wofi --show drun"
+
+        # sound mod
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+
+        # brightness
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+        ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+
+        # mic switch
+        ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
         ", Print, exec, grimblast copy area"
     ]
     ++ (

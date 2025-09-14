@@ -10,7 +10,7 @@
     xwayland.enable = true;
 
     settings = {
-    "$mod" = "SUPER";
+      "$mod" = "SUPER";
     };
   };
 }

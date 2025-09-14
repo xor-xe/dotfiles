@@ -80,9 +80,6 @@
   #
   #  /etc/profiles/per-user/xorxe/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-  };
 
   # home.file.".config/hypr/hyprland.conf".text = ''exec-once = bash ''; #example of hyprland or any config file in home manager throguh seer text
   # home.file.".config/hypr/hyprland.conf".source = ./hyrland.conf; #example of hyprland or any config file in home manager through file reference in this case .dotfiles directrory

@@ -30,6 +30,7 @@
         # mic switch
         ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
+        # misc
         ", Print, exec, grimblast copy area"
     ]
     ++ (

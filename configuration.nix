@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, hyprland, ... }:
+{ config, pkgs, lib, hyprland, ... }:
 
 {
   imports =
@@ -80,7 +80,7 @@
   # boot.initrd.kernelModules = [  ];
   boot.kernelModules = [ "amdgpu" "nvidia" ];
   boot.kernelParams = [ "nvidia-drm.modeset=1" ];
-  services.xserver.videoDrivers = [ "amdgpu" ]; # whne runnig gpu heavy tasks you need specify to us gpu with prime offload if arg is only amgpu cuz now "nvidia" is disabled in wm
+  services.xserver.videoDrivers = [ "nvidia" ]; # whne runnig gpu heavy tasks you need specify to us gpu with prime offload if arg is only amgpu cuz now "nvidia" is disabled in wm
   hardware.graphics.enable = true;
 
   hardware.nvidia = {
@@ -131,18 +131,16 @@
   programs.hyprland = {
     enable = true;
     package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    portalPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;    
   };
 
-  # SDDM
-  services.displayManager.sddm.enable = false;
-  services.displayManager.sddm.theme = "breeze";
-  services.displayManager.sddm.wayland.enable = false; # false works
+  # Display Manager - ly
+  services.displayManager.ly.enable = true;
 
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = false;
+  services.xserver.desktopManager.gnome.enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {

@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports = [./sh.nix];
+  imports = [
+    ./sh.nix
+    ./hyprland/config.nix
+  ];
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -17,10 +20,10 @@
   # release notes.
   home.stateVersion = "25.05"; # Please read the comment before changing.
 
-  # wayland.windowManager.hyprland = {
-  #   enable = true;
-  #   xwayland.enable = true;
-  # };
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -28,6 +31,8 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     hello
+    waybar
+    wofi
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -45,6 +50,7 @@
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
+
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a

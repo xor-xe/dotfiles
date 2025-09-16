@@ -32,6 +32,9 @@
 
         # misc
         ", Print, exec, grimblast copy area"
+        "$mod, F1, exec, powerprofilesctl set power-saver"    # Switch to power-saver
+        "$mod, F2, exec, powerprofilesctl set balanced"       # Switch to balanced
+        "$mod, F3, exec, powerprofilesctl set performance"    # Switch to performance
     ]
     ++ (
       # workspaces

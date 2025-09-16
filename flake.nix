@@ -7,9 +7,17 @@
   hyprland.url = "github:hyprwm/Hyprland";
   home-manager.url = "github:nix-community/home-manager/release-25.05"; # home manager has seperate installation source
   home-manager.inputs.nixpkgs.follows = "nixpkgs"; # make sure that version is same for homeanager and nixpkgs
+  quickshell = {
+      # add ?ref=<tag> to track a tag
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+
+      # THIS IS IMPORTANT
+      # Mismatched system dependencies will lead to crashes and other issues.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
  };
 
- outputs = {self, nixpkgs, home-manager, hyprland, ... }: #args of packages used down the line
+ outputs = {self, nixpkgs, home-manager, hyprland, quickshell, ... }: #args of packages used down the line
   let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
@@ -25,6 +33,7 @@
   homeConfigurations = { # home config for user
     xorxe = home-manager.lib.homeManagerConfiguration {
       inherit pkgs; # takes pkgs as args but as var from let binding above
+      extraSpecialArgs = { inherit quickshell; };
       modules = [ ./home.nix ]; #file inside .dotfiles
     };
   };

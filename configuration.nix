@@ -111,6 +111,9 @@
   #   };
   # };
 
+  # Power management stuff
+  services.power-profiles-daemon.enable = true;
+
   # power limmiter script
   # /etc/nixos/configuration.nix
   systemd.services.battery-charge-threshold = {
@@ -203,6 +206,7 @@
     radeontop
     glxinfo
     brightnessctl
+    power-profiles-daemon
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

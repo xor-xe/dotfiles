@@ -6,6 +6,7 @@
     ./modules/waybar.nix
     ./modules/hypridle.nix
     ./modules/hyprlock.nix
+    ./modules/quickshell.nix
   ];
   
   wayland.windowManager.hyprland = {

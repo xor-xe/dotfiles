@@ -4,6 +4,8 @@
     ./modules/bind.nix
     ./modules/autostart.nix
     ./modules/waybar.nix
+    ./modules/hypridle.nix
+    ./modules/hyprlock.nix
   ];
   
   wayland.windowManager.hyprland = {

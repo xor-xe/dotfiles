@@ -17,5 +17,5 @@
       on-resume = "hyprctl dispatch dpms on";
     }
   ];
-  }
+  };
 }

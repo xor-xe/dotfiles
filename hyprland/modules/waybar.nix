@@ -10,18 +10,31 @@
         height = 30;
         modules-left = ["hyprland/workspaces" "hyprland/window"];
         modules-center = ["clock"];
-        modules-right = ["pulseaudio" "backlight" "network" "cpu" "memory" "battery" "tray" "hyprland/language"];
+        modules-right = ["pulseaudio" "backlight" "network" "cpu" "power-profiles-daemon" "memory" "battery" "tray" "hyprland/language"];
 
         # Language module configuration
         "hyprland/language" = {
           format = ''🌐 {}'';  # Icon followed by layout code
-          format-en = "US";    # Custom name for English layout
-          format-ka = "GE";    # Custom name for georhian layout
+          format-en = "ინგ";    # Custom name for English layout
+          format-ka = "ქარ";    # Custom name for georhian layout
           # Add more formats for other layouts as needed
           tooltip = true;      # Show full layout name on hover
           on-click = "hyprctl switchxkblayout next"; # Cycle layouts on click
           # keyboard-name = "your-keyboard-device"; # Uncomment and specify if needed
         };
+
+        "power-profiles-daemon" = {
+        format = "{icon}";  # Shows icon only (compact); or "{icon} {profile}" for name too
+        tooltip-format = "Power profile: {profile}";  # Tooltip with details
+        tooltip = true;
+        format-icons = {
+          "default" = "󰋄";      # Nerd Font icon for default (customize as needed)
+          "performance" = "დატვირთვა";  # High perf
+          "balanced" = "ბალანსი";     # Balanced
+          "power-saver" = "მოშვება";  # Power saver
+        };
+        # Optional: on-click-left = "powerprofilesctl launch -p balanced";  # Custom action instead of default cycle
+      };
 
         # Other module configurations (example)
         "hyprland/workspaces" = {
@@ -59,6 +72,7 @@
           interval = 5;
           tooltip = true;
         };
+        
         # Memory module configuration  
         memory = {
           format = " {used:0.1f}G/{total:0.1f}G"; # Using Nerd Font icon
@@ -194,6 +208,11 @@
         background-color: rgba(229, 192, 123, 0.5); /* Slightly more opaque on hover */
         transition: background-color 0.3s ease;
       }
+
+      #power-profiles-daemon { color: #ffffff; padding: 0 10px; }
+      #power-profiles-daemon.performance { color: #f53c3c; }  /* Red for perf mode */
+      #power-profiles-daemon.balanced { color: #fabd2f; }     /* Yellow for balanced */
+      #power-profiles-daemon.power-saver { color: #83a598; } /* Green for saver */
 
       /* Hover effects */
       #cpu:hover, #memory:hover {

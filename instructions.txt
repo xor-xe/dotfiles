@@ -21,3 +21,6 @@ collect garbge (old packages only)
 
 collect garbage and old generations (all of them) (use other options to dleete specific generations)
  sudo nix-collect-garbage -d
+
+check github package rev and sha for github import
+ nix run nixpkgs#nix-prefetch-github -- zsh-users zsh-completions

@@ -39,6 +39,11 @@
     oh-my-zsh
     fastfetch
 
+    # terminal stuff
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    zsh-completions
+
     # quickshell stuff
     quickshell.packages.${pkgs.system}.default
     qt5.qtsvg

@@ -105,6 +105,7 @@
     btop
     gh
     kitty
+    ghostty
     direnv
     obsidian
     radeontop

@@ -7,6 +7,7 @@
     ./modules/hypridle.nix
     ./modules/hyprlock.nix
     ./modules/quickshell/quickshell.nix
+    ./modules/ghostty.nix
   ];
   
   wayland.windowManager.hyprland = {

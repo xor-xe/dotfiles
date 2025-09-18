@@ -1,1 +1,2 @@
-*network.nix
+# Ignore network.nix anywhere in the repo
+**/network.nix

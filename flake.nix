@@ -8,12 +8,8 @@
   home-manager.url = "github:nix-community/home-manager/release-25.05"; # home manager has seperate installation source
   home-manager.inputs.nixpkgs.follows = "nixpkgs"; # make sure that version is same for homeanager and nixpkgs
   quickshell = {
-      # add ?ref=<tag> to track a tag
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-
-      # THIS IS IMPORTANT
-      # Mismatched system dependencies will lead to crashes and other issues.
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";  # Or github:quickshell-mirror/quickshell
+      inputs.nixpkgs.follows = "nixpkgs";  # Critical: Matches NixOS deps to avoid crashes
     };
  };
 

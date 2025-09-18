@@ -36,7 +36,13 @@
     hyprlock
     waybar
     wofi
+
+    # quickshell stuff
     quickshell.packages.${pkgs.system}.default
+    qt5.qtsvg
+    qt5.qtimageformats
+    qt5.qtmultimedia
+    kdePackages.qt5compat
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

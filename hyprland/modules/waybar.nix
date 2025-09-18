@@ -10,7 +10,7 @@
         height = 30;
         modules-left = ["hyprland/workspaces" "hyprland/window"];
         modules-center = ["clock"];
-        modules-right = ["pulseaudio" "network" "cpu" "memory" "battery" "tray" "hyprland/language"];
+        modules-right = ["pulseaudio" "backlight" "network" "cpu" "memory" "battery" "tray" "hyprland/language"];
 
         # Language module configuration
         "hyprland/language" = {
@@ -45,6 +45,14 @@
             default = ["🔈" "🔉" "🔊"];
             muted = "🔇";
           };
+        };
+        # Backlight module configuration
+        backlight = {
+          device = "amdgpu_bl1"; # Adjust if needed. Check with `brightnessctl --list` :cite[1]
+          format = "{icon} {percent}%";
+          format-icons = ["🌑" "🌘" "🌗" "🌖" "🌕"]; # Custom icons for different brightness levels
+          # Optional: Specify min-brightness if needed (default is 0) :cite[8]
+          min-brightness = 15;
         };
         cpu = {
           format = " {usage}%"; # Using Nerd Font icon
@@ -170,6 +178,21 @@
         );
         color: #98c379;
         border-left: 2px solid #98c379;
+      }
+
+       #backlight {
+        background-color: rgba(229, 192, 123, 0.3); /* Softer amber/orange with transparency */
+        color: #e5c07b; /* Amber text color */
+        padding: 0 10px;
+        margin: 2px;
+        border-radius: 8px;
+        font-family: "FiraCode Nerd Font";
+        border-left: 2px solid #e5c07b; /* Amber accent border */
+      }
+
+      #backlight:hover {
+        background-color: rgba(229, 192, 123, 0.5); /* Slightly more opaque on hover */
+        transition: background-color 0.3s ease;
       }
 
       /* Hover effects */

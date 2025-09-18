@@ -1,4 +1,4 @@
 {...}:{
-  home.file.".config/quickshell/shell.qml".source = ./quickshell/configs/pirveli.qml;
+  home.file.".config/quickshell/shell.qml".source = ./configs/pirveli.qml;
 
 }

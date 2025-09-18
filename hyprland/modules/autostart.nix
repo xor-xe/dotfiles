@@ -18,7 +18,6 @@
       WantedBy = [ "graphical-session.target" ];
     };
   };
-  # programs.quickshell.systemd.enable = true;
   wayland.windowManager.hyprland.settings.exec-once = [
     "waybar"
     "hypridle"

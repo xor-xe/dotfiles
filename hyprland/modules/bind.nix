@@ -14,7 +14,7 @@
 
         # apps
         "$mod, F, exec, firefox"
-        "$mod, T, exec, ghostty"
+        "$mod, T, exec, ghostty --command='zsh' "
         "$mod, C, exec, code"
         "$mod, R, exec, wofi --show drun"
 

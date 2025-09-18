@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./sh.nix
     ./hyprland/config.nix
   ];
 
@@ -36,6 +35,9 @@
     hyprlock
     waybar
     wofi
+    zsh
+    oh-my-zsh
+    fastfetch
 
     # quickshell stuff
     quickshell.packages.${pkgs.system}.default

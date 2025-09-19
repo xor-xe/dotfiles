@@ -38,7 +38,9 @@
     waybar
     wofi
     mako
-
+    xfce.thunar
+    feh # image viewer
+    
     # terminal stuff
     zsh
     oh-my-zsh

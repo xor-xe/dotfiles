@@ -1,7 +1,7 @@
 {...}:{
   programs.ghostty.enable = true;
   programs.ghostty.settings = {
-      theme = "CyberpunkScarletProtocol";
+      theme = "catppuccin-mocha";
       shell-integration = "zsh";
       font-size = 10;
       window-padding-x = 10;       # gives left & right padding of 10 points

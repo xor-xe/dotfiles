@@ -7,7 +7,17 @@ let
   };
 in
 {
-  home.file.".p10k.zsh".source = ./shell/.p10k.zsh;
+
+  imports = [
+    ./ghostty.nix
+  ];
+  
+  home.file.".p10k.zsh".source = ./.p10k.zsh;
+
+  #fast fetch
+  home.file.".config/fastfetch/images/red-borjghalo.png".source = ./fastfetch/images/red-borjghalo.png;
+  home.file.".config/fastfetch/images/blue-borjghalo.png".source = ./fastfetch/images/blue-borjghalo.png;
+  home.file.".config/fastfetch/config.jsonc".source = ./fastfetch/fastfetch.jsonc;
 
   home.packages = with pkgs; [
     zsh-powerlevel10k

@@ -5,6 +5,8 @@
     ./hyprland/config.nix
   ];
 
+  services.mako.enable = true;
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "xorxe";
@@ -35,14 +37,15 @@
     hyprlock
     waybar
     wofi
-    zsh
-    oh-my-zsh
-    fastfetch
+    mako
 
     # terminal stuff
+    zsh
+    oh-my-zsh
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-completions
+    fastfetch
 
     # quickshell stuff
     quickshell.packages.${pkgs.system}.default

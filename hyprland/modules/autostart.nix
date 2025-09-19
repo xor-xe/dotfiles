@@ -39,6 +39,7 @@
   wayland.windowManager.hyprland.settings.exec-once = [
     "waybar"
     "hypridle"
-    "quickshell"
+    # enable after starting quickshell
+    # "quickshell" 
   ];
 }

@@ -48,7 +48,7 @@
     zsh-syntax-highlighting
     zsh-completions
     fastfetch
-    colorls
+    lsd
     bat
 
     # quickshell stuff

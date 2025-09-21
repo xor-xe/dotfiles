@@ -183,6 +183,10 @@
   # Left prompt terminator for lines without any segments.
   typeset -g POWERLEVEL9K_EMPTY_LINE_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=
 
+  #################################[My Custom Stuff]###########################################
+
+  typeset -g POWERLEVEL9K_DIR_HOME_ICON='🏠'  # Home icon
+
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=232

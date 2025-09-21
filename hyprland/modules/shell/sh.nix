@@ -89,7 +89,7 @@ in
       # }
     ];
     autosuggestion.enable = true; # Enables zsh-autosuggestions functionality
-    syntaxHighlighting.enable = true; # Enables zsh-syntax-highlighting
+    syntaxHighlighting.enable = true; # Enables zsh-syntax-highlighting | if you nebale this calt doesnt work
   };
 
 }

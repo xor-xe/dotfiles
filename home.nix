@@ -48,6 +48,8 @@
     zsh-syntax-highlighting
     zsh-completions
     fastfetch
+    colorls
+    bat
 
     # quickshell stuff
     quickshell.packages.${pkgs.system}.default

@@ -41,6 +41,7 @@
     nerd-fonts.fira-code
     nerd-fonts.droid-sans-mono
     font-awesome
+    iosevka
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

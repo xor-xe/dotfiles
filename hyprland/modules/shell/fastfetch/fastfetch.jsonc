@@ -27,16 +27,16 @@
     "modules": [
         {
             "type": "title",
-            "format": "                             {user-name-colored}{at-symbol-colored}{host-name-colored}"
+            "format": "                             ​† უფალო შეგვიწყალენ ​†"
         },
         "break",
         {
             "type": "custom",
-            "format": "┌{$1} {#1}System Information{#} {$1}┐"
+            "format": "┌{$1} {#1}სალამ ყველას, ვისთანაც{#} {$1}┐"
         },
         "break",
         {
-            "key": "OS           ",
+            "key": "ოპერატიული   ",
             "keyColor": "red",
             "type": "os"
         },
@@ -51,7 +51,7 @@
             "type": "kernel"
         },
         {
-            "key": "Uptime       ",
+            "key": "განთიადი     ",
             "keyColor": "red",
             "type": "uptime"
         },
@@ -111,7 +111,7 @@
         "break",
         {
             "type": "custom",
-            "format": "└{$1}────────────────────{$1}┘"
+            "format": "└{$1}─────── ზღვა ღელავს ─────{$1}┘"
         },
         "break",
         {

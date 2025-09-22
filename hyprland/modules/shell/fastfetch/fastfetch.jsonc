@@ -36,17 +36,17 @@
         },
         "break",
         {
-            "key": "ოპერატიული   ",
+            "key": "სული         ",
             "keyColor": "red",
             "type": "os"
         },
         {
-            "key": "Machine      ",
+            "key": "ხორცი        ",
             "keyColor": "green",
             "type": "host"
         },
         {
-            "key": "Kernel       ",
+            "key": "გული         ",
             "keyColor": "magenta",
             "type": "kernel"
         },
@@ -56,57 +56,46 @@
             "type": "uptime"
         },
         {
-            "key": "Resolution   ",
+            "key": "სარკე        ",
             "keyColor": "yellow",
             "type": "display",
             "compactType": "original-with-refresh-rate"
         },
         {
-            "key": "WM           ",
+            "key": "ანარეკლი     ",
             "keyColor": "blue",
             "type": "wm"
         },
         {
-            "key": "DE           ",
-            "keyColor": "green",
-            "type": "de"
-        },
-        {
-            "key": "Shell        ",
+            "key": "შელმოქმედი   ",
             "keyColor": "cyan",
             "type": "shell"
         },
         {
-            "key": "Terminal     ",
+            "key": "ამანაცია     ",
             "keyColor": "red",
             "type": "terminal"
         },
         {
-            "key": "CPU          ",
+            "key": "ტვინი        ",
             "keyColor": "yellow",
             "type": "cpu"
         },
         {
-            "key": "GPU          ",
+            "key": "ხელი         ",
             "keyColor": "blue",
             "type": "gpu"
         },
         {
-            "key": "Memory       ",
+            "key": "გონი         ",
             "keyColor": "magenta",
             "type": "memory"
         },
         {
-            "key": "Local IP     ",
+            "key": "სახლი        ",
             "keyColor": "red",
             "type": "localip",
             "compact": true
-        },
-        {
-            "key": "Public IP    ",
-            "keyColor": "cyan",
-            "type": "publicip",
-            "timeout": 1000
         },
         "break",
         {

@@ -8,6 +8,7 @@
     ./modules/hyprlock.nix
     ./modules/quickshell/quickshell.nix
     ./modules/shell/sh.nix
+    ./modules/scripts/scripts.nix
   ];
   
   wayland.windowManager.hyprland = {

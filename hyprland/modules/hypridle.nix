@@ -16,7 +16,7 @@
     { 
       timeout = 150;
       on-timeout = "brightnessctl -sd asus::kbd_backlight set 0";
-      on-resume = "brightnessctl -rd asus::kbd_backlight";
+      on-resume = "brightnessctl -sd asus::kbd_backlight set 1";
     }
     {
       timeout = 900;

@@ -26,6 +26,7 @@
         # brightness
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
         ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+        ", XF86KbdLightOnOff, exec, ~/.config/scripts/keyboard_lights.sh"
 
         # mic switch
         ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
@@ -35,6 +36,8 @@
         "$mod ALT, F1, exec, powerprofilesctl set power-saver"    # Switch to power-saver
         "$mod ALT, F2, exec, powerprofilesctl set balanced"       # Switch to balanced
         "$mod ALT, F3, exec, powerprofilesctl set performance"    # Switch to performance
+
+        # XF86Assistant - AI key 
     ]
     ++ (
       # workspaces

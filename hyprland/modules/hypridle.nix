@@ -8,16 +8,16 @@
   };
 
   listener = [
-    {
-      timeout = 150;
-      on-timeout = "brightnessctl -s set 15";
-      on-resume = "brightnessctl -r";
-    }
-    { 
-      timeout = 150;
-      on-timeout = "brightnessctl -sd asus::kbd_backlight set 0";
-      on-resume = "brightnessctl -sd asus::kbd_backlight set 1";
-    }
+    # {
+    #   timeout = 150;
+    #   on-timeout = "brightnessctl -s set 15";
+    #   on-resume = "brightnessctl -r";
+    # }
+    # { 
+    #   timeout = 150;
+    #   on-timeout = "brightnessctl -sd asus::kbd_backlight set 0";
+    #   on-resume = "brightnessctl -sd asus::kbd_backlight set 1";
+    # }
     {
       timeout = 900;
       on-timeout = "hyprlock";

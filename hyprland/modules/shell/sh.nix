@@ -4,6 +4,7 @@ let
   myAliases ={
     ll = "ls -l";
     ls = "lsd";
+    cl = "clear";
     cat = "bat";
     ff = "fastfetch";
     ".." = "cd ..";

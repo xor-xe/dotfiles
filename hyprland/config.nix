@@ -1,4 +1,4 @@
-{...}: {
+{config, pkgs, ...}: {
   imports = [
     ./modules/input.nix
     ./modules/bind.nix
@@ -9,6 +9,7 @@
     ./modules/quickshell/quickshell.nix
     ./modules/shell/sh.nix
     ./modules/scripts/scripts.nix
+    ./modules/mgelangelozi/init.nix
   ];
   
   wayland.windowManager.hyprland = {

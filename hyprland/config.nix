@@ -10,6 +10,8 @@
     ./modules/shell/sh.nix
     ./modules/scripts/scripts.nix
     ./modules/mgelangelozi/init.nix
+    ./modules/soft_theming/cursor.nix
+    ./modules/soft_theming/gtk.nix
   ];
   
   wayland.windowManager.hyprland = {

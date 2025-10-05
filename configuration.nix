@@ -48,7 +48,7 @@
   users.users.xorxe = {
     isNormalUser = true;
     description = "Luka Khorkheli";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "vboxusers" ];
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -148,6 +148,13 @@
   services.asusd.enable = true;
 
 
+  # Virtualisation ----------------------------------------------------------------------------------
+
+  # Enable VirtualBox
+  virtualisation.virtualbox.host.enable = true;
+  
+  # Optional: Enable the Oracle Extension Pack (requires allowUnfree = true)
+  virtualisation.virtualbox.host.enableExtensionPack = true;
 
   # Boring Stuff ------------------------------------------------------------------------------------
 

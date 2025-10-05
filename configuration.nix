@@ -123,6 +123,13 @@
   #   enableSSHSupport = true;
   # };
 
+  # used for foreign packages like cursor code editor
+  programs.nix-ld = {
+    enable = true;
+    # Optionally, include any extra libraries you find are missing
+    # libraries = with pkgs; [ ];
+  };
+
   # Services --------------------------------------------------------------------
 
   # Enable the OpenSSH daemon.
@@ -153,4 +160,5 @@
   system.stateVersion = "25.05"; # Did you read the comment?
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nix.settings.trusted-users = [ "root" "xorxe" ];
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, quickshell, ... }:
+{ config, pkgs, quickshell, pkgsUnstable, ... }:
 
 {
   imports = [
@@ -63,6 +63,12 @@
     openvpn
 
     # # cybersec stuff
+    # coding stuff
+    python3
+    devenv
+    netlify-cli
+    nodejs_20
+    yarn
     # ffuf
     # seclists
 
@@ -78,7 +84,9 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-  ];
+  ] ++ (with pkgsUnstable; [
+    code-cursor
+  ]);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

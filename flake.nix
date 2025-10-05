@@ -4,6 +4,7 @@
 
  inputs = {
   nixpkgs.url = "nixpkgs/nixos-25.05"; # where nix packages are being installed from
+  nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
   hyprland.url = "github:hyprwm/Hyprland";
   home-manager.url = "github:nix-community/home-manager/release-25.05"; # home manager has seperate installation source
   home-manager.inputs.nixpkgs.follows = "nixpkgs"; # make sure that version is same for homeanager and nixpkgs
@@ -13,11 +14,15 @@
     };
  };
 
- outputs = {self, nixpkgs, home-manager, hyprland, quickshell, ... }: #args of packages used down the line
+ outputs = {self, nixpkgs, home-manager, hyprland, quickshell, nixpkgs-unstable, ... }: #args of packages used down the line
   let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    pkgsUnstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true; # Necessary for Cursor
+    };
   in {
   nixosConfigurations = {
     nixos = lib.nixosSystem {
@@ -29,7 +34,7 @@
   homeConfigurations = { # home config for user
     xorxe = home-manager.lib.homeManagerConfiguration {
       inherit pkgs; # takes pkgs as args but as var from let binding above
-      extraSpecialArgs = { inherit quickshell; };
+      extraSpecialArgs = { inherit quickshell; inherit pkgsUnstable; };
       modules = [ ./home.nix ]; #file inside .dotfiles
     };
   };

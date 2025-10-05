@@ -37,10 +37,13 @@
        windowrulev2 = [
         "opacity 0.95 override 0.95 override,class:^(firefox)$"
         "opacity 0.95 override 0.95 override,class:^(code)$"
+        "opacity 0.95 override 0.95 override,class:^(cursor)$"
         "opacity 0.95 override 0.95 override,class:^(obsidian)$"
         "opacity 0.7 override 0.7 override,class:^(ghostty)$"
         "opacity 0.9 0.7,floating:1"
         # "noblur,class:^(firefox)$"
+
+        "idleinhibit fullscreen, class:^(firefox)$" #firefux fulscreen doesnt trigger hypridle
       ];
 
     };

@@ -4,7 +4,7 @@
 
   home.file.".config/${vars.projectName}/scripts/swww/swww-init.sh" = {
     text = ''
-      #!/bin/bash
+      ${vars.shabang}
       # Wait until a Hyprland instance is running
       until hyprctl monitors > /dev/null 2>&1; do
           sleep 0.1

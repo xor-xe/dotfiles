@@ -24,3 +24,6 @@ collect garbage and old generations (all of them) (use other options to dleete s
 
 check github package rev and sha for github import
  nix run nixpkgs#nix-prefetch-github -- zsh-users zsh-completions
+
+run quickshell with specifi file (to dev quickshel modules)
+qs -p ./hyprland/modules/quickshell/configs/pirveli.qml

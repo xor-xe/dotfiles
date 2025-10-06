@@ -1,9 +1,14 @@
 { config, pkgs, quickshell, pkgsUnstable, ... }:
 
+let
+  vars = import ./variables.nix;
+in 
 {
   imports = [
     ./hyprland/config.nix
   ];
+
+  _module.args.vars = vars; # for vars to be used in modules
 
   services.mako.enable = true;
 

@@ -16,6 +16,7 @@
 
  outputs = {self, nixpkgs, home-manager, hyprland, quickshell, nixpkgs-unstable, ... }: #args of packages used down the line
   let
+    projectName = "mariage";
     lib = nixpkgs.lib;
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
@@ -34,7 +35,7 @@
   homeConfigurations = { # home config for user
     xorxe = home-manager.lib.homeManagerConfiguration {
       inherit pkgs; # takes pkgs as args but as var from let binding above
-      extraSpecialArgs = { inherit quickshell; inherit pkgsUnstable; };
+      extraSpecialArgs = { inherit quickshell; inherit pkgsUnstable; inherit projectName; };
       modules = [ ./home.nix ]; #file inside .dotfiles
     };
   };

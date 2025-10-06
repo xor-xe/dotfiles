@@ -12,6 +12,7 @@
     ./modules/mgelangelozi/init.nix
     ./modules/soft_theming/cursor.nix
     ./modules/soft_theming/gtk.nix
+    ./modules/swww/swww.nix
   ];
   
   wayland.windowManager.hyprland = {

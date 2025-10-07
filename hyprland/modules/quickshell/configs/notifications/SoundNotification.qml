@@ -95,12 +95,38 @@ Scope {
             color: "#282828"
             radius: 20
             
-            // Content
-            Text {
-                text: isMuted ? "🔇 Muted" : "🔊 " + volumeLevel + "%"
-                color: "white"
-                font.pixelSize: 16
+            Row {
                 anchors.centerIn: parent
+                spacing: 10
+                
+                // Icon
+                Text {
+                    text: isMuted ? "🔇" : "🔊"
+                    color: "white"
+                    font.pixelSize: 20
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                
+                // Volume bar container
+                Rectangle {
+                    width: 120
+                    height: 8
+                    color: "#1a1a1a"
+                    radius: 4
+                    anchors.verticalCenter: parent.verticalCenter
+                    
+                    // Filled portion
+                    Rectangle {
+                        width: parent.width * (volumeLevel / 100.0)
+                        height: parent.height
+                        color: isMuted ? "#666666" : "#ffffff"
+                        radius: 4
+                        
+                        Behavior on width {
+                            NumberAnimation { duration: 100 }
+                        }
+                    }
+                }
             }
         }
     }

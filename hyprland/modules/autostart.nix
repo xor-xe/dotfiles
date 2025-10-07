@@ -40,6 +40,6 @@
     "waybar"
     "hypridle"
     # enable after starting quickshell
-    # "quickshell" 
+    "qs -p ~/dotfiles/hyprland/modules/quickshell/configs/main.qml" 
   ];
 }

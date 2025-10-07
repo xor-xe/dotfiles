@@ -6,4 +6,5 @@ import "./notifications"
 Scope {
   Bar {}
   SoundNotification {}
+  BrightnessNotification {}
 }

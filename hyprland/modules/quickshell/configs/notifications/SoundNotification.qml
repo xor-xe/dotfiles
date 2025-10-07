@@ -6,26 +6,20 @@ import QtQuick
 
 Scope {
     property var screen: Quickshell.screens[0]
-    property string volumeLevel: "0%"
+    property int volumeLevel: 0
     property bool isMuted: false
+    property int lastVolume: -1
+    property bool lastMuted: false
     
-    // Process to monitor volume changes
-    Process {
-        id: volumeMonitor
+    // Timer to poll volume changes
+    Timer {
+        id: volumePoller
+        interval: 100  // Check every 100ms
         running: true
-        command: ["wpctl", "subscribe"]
-        
-        stdout: SplitParser {
-            onRead: data => {
-                // When any audio event happens, update volume
-                updateVolume()
-            }
+        repeat: true
+        onTriggered: {
+            volumeGetter.running = true
         }
-    }
-    
-    // Function to get current volume
-    function updateVolume() {
-        volumeGetter.running = true
     }
     
     Process {
@@ -39,13 +33,21 @@ Scope {
                 let parts = data.trim().split(" ")
                 if (parts.length >= 2) {
                     let vol = Math.round(parseFloat(parts[1]) * 100)
-                    volumeLevel = vol + "%"
-                    isMuted = data.includes("[MUTED]")
+                    let muted = data.includes("[MUTED]")
                     
-                    // Show notification
-                    notificationWindow.visible = true
-                    hideTimer.restart()
+                    // Check if volume or mute status changed
+                    if (vol !== lastVolume || muted !== lastMuted) {
+                        volumeLevel = vol
+                        isMuted = muted
+                        lastVolume = vol
+                        lastMuted = muted
+                        
+                        // Show notification
+                        notificationWindow.visible = true
+                        hideTimer.restart()
+                    }
                 }
+                volumeGetter.running = false
             }
         }
     }
@@ -95,7 +97,7 @@ Scope {
             
             // Content
             Text {
-                text: isMuted ? "🔇 Muted" : "🔊 " + volumeLevel
+                text: isMuted ? "🔇 Muted" : "🔊 " + volumeLevel + "%"
                 color: "white"
                 font.pixelSize: 16
                 anchors.centerIn: parent

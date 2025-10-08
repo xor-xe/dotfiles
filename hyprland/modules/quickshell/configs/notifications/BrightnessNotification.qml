@@ -8,6 +8,7 @@ Scope {
     property var screen: Quickshell.screens[0]
     property int brightnessLevel: 0
     property int lastBrightness: -1
+    property bool initialized: false
     
     // Timer to poll brightness changes
     Timer {
@@ -36,9 +37,13 @@ Scope {
                         brightnessLevel = brightness
                         lastBrightness = brightness
                         
-                        // Show notification
-                        notificationWindow.visible = true
-                        hideTimer.restart()
+                        // Only show notification after first initialization
+                        if (initialized) {
+                            notificationWindow.visible = true
+                            hideTimer.restart()
+                        } else {
+                            initialized = true
+                        }
                     }
                 }
                 brightnessGetter.running = false

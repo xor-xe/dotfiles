@@ -10,6 +10,7 @@ Scope {
     property bool isMuted: false
     property int lastVolume: -1
     property bool lastMuted: false
+    property bool initialized: false
     
     // Timer to poll volume changes
     Timer {
@@ -42,9 +43,13 @@ Scope {
                         lastVolume = vol
                         lastMuted = muted
                         
-                        // Show notification
-                        notificationWindow.visible = true
-                        hideTimer.restart()
+                        // Only show notification after first initialization
+                        if (initialized) {
+                            notificationWindow.visible = true
+                            hideTimer.restart()
+                        } else {
+                            initialized = true
+                        }
                     }
                 }
                 volumeGetter.running = false

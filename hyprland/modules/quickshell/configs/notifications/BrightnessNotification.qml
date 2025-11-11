@@ -62,6 +62,7 @@ Scope {
     
     WlrLayershell {
         id: notificationWindow
+        screen: parent.screen
         
         // Window properties
         implicitWidth: 200

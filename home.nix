@@ -75,6 +75,7 @@ in
     devenv
     ollama
     bruno
+    rainfrog
     # ffuf
     # seclists
 

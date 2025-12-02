@@ -48,6 +48,7 @@ in
     mako
     xfce.thunar
     feh # image viewer
+    gedit
     
     # terminal stuff
     zsh
